@@ -12,55 +12,65 @@ import matplotlib.pyplot as plt
 
 def fn1(c1, c2, c3):
     """Function to plot a line plot using matplotlib.pyplot"""
-    plt.figure(figsize=[7.5, 3])
+    plt.figure(figsize=[14, 6])
     plt.plot(c1, c2, label='Male', c='b')
     plt.plot(c1, c3, label='Female', c='g')
-    plt.xticks(range(2000, 2020, 2))
+    plt.xticks(range(2000, 2020, 2), fontsize=15)
+    plt.yticks(fontsize=15)
     plt.xlim(2000, 2019)
     plt.ylim(0, 30)
-    plt.xlabel("Year", fontweight='bold')
-    plt.ylabel("Number of deaths \n per 100,000 population", fontweight='bold')
-    plt.legend(loc='best')
-    plt.title(" Suicide rate in india   ",
-              color='black', fontsize=24,
+    plt.xlabel("Year", fontweight='bold', fontsize=20)
+    plt.ylabel("Number of deaths \n per 100,000 population",
+               fontweight='bold', fontsize=20)
+    plt.legend(loc='best', fontsize=20)
+    plt.title(" Suicide rate in india  ",
+              color='black', fontsize=40,
               fontweight='bold', fontname="Times New Roman")
+    plt.grid(zorder=0)
     plt.savefig("Assignment 1 figure 1.png")
     plt.show() 
     
-"""
-def fn2(x, c1, c2):
-    Function to make a bar graph with multiple bars
-    xlen = len(df2.index)
-    plt.bar(xlen, c1, label="Deaths", width=.05)
-    #plt.bar(xlen+25, c2, label="Population")
-    plt.xticks(x.tolist())
-    plt.legend()
+
+def fn2(x, c1):
+    """Function to make a bar graph with multiple bars.
+    Arguments: A dataframe with the bar plot categories as its index 
+    and the column to plot the bars"""
+    plt.figure(figsize=[19,7])
+    plt.bar(x.index, x[c1], label="Deaths", width=.69, zorder=2)
+    
+    #labelling
+    plt.title("Percentage of covid deaths by country",
+              fontsize=38)
+    plt.xlabel("Country", fontsize=25)
+    plt.ylabel("Percentage of death", fontsize=25)
+    plt.xticks( fontsize=18)
+    plt.yticks( fontsize=18)
+    
+    
+    # save the figure
+    plt.savefig("Assignment 1 figure 2.png")
     plt.show()
 
 
-"""
 def fn3(v, l):
     """Function to create Pie chart with 
     the values and labels as parameter"""
     
     
-    plt.figure(figsize=[8,8])
-    plt.pie(v, labels=l, autopct='%1.1f%%', textprops={'fontsize':18})
+    plt.figure(figsize=[12, 10])
+    plt.pie(v, labels=l, autopct='%1.1f%%', textprops={'fontsize':25})
     plt.title("Percentage of adults \n who identify as LGBTQ",
-              fontweight='bold', fontsize=30)
-    
+              fontweight='bold', fontsize=40)
+    plt.savefig("Assignment 1 figure 3")
     plt.show()
 
 
 df1 = pd.read_excel("Male and female suicide rates india.xlsx") 
-
 fn1(df1['Year'], df1['Male'], df1['Female'])
-"""
 
-df2 = pd.read_excel("Covid death data of 10 countries.xlsx")
-fn2(df2["Country"], df2["Deaths"], df2["Population"])
+df2 = pd.read_excel("Covid stat of 10 countries.xlsx", index_col="Country")
+fn2(df2, "Percentages")
 
-"""
 df3 = pd.read_excel("LGBTQ percentages among generations.xlsx")
 piex = df3["Generation"].tolist()
 fn3(df3[2021], piex) 
