@@ -9,9 +9,9 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-"""
+
 def fn1(c1, c2, c3):
-     Function to plot a line plot using matplotlib.pyplot 
+    """Function to plot a line plot using matplotlib.pyplot"""
     plt.figure(figsize=[7.5, 3])
     plt.plot(c1, c2, label='Male', c='b')
     plt.plot(c1, c3, label='Female', c='g')
@@ -26,10 +26,10 @@ def fn1(c1, c2, c3):
               fontweight='bold', fontname="Times New Roman")
     plt.savefig("Assignment 1 figure 1.png")
     plt.show() 
-    """
     
+"""
 def fn2(x, c1, c2):
-    """Function to make a bar graph with multiple bars"""
+    Function to make a bar graph with multiple bars
     xlen = len(df2.index)
     plt.bar(xlen, c1, label="Deaths", width=.05)
     #plt.bar(xlen+25, c2, label="Population")
@@ -40,8 +40,8 @@ def fn2(x, c1, c2):
 
 """
 def fn3(v, l):
-    Function to create Pie chart with 
-    the values and labels as parameter
+    """Function to create Pie chart with 
+    the values and labels as parameter"""
     
     
     plt.figure(figsize=[8,8])
@@ -63,7 +63,4 @@ fn2(df2["Country"], df2["Deaths"], df2["Population"])
 """
 df3 = pd.read_excel("LGBTQ percentages among generations.xlsx")
 piex = df3["Generation"].tolist()
-fn3(df3[2021], piex) """
-
-
-
+fn3(df3[2021], piex) 
