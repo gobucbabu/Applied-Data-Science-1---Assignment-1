@@ -22,8 +22,6 @@ def PlotLineGraph(df, c1, c2, c3):
     plt.plot(df[c1], df[c3], label='Female', c='g')
     plt.xticks(range(2000, 2020, 2), fontsize=15)
     plt.yticks(fontsize=15)
-
-    # ticks
     plt.xlim(2000, 2019)
     plt.ylim(0, 30)
 
