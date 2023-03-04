@@ -84,7 +84,7 @@ def PlotPieChart(v, lst):
     plt.pie(v, labels=lst, autopct='%1.1f%%', textprops={'fontsize': 25})
 
     # labeling
-    plt.title("Percentage of adults \n who identify as LGBTQ",
+    plt.title("Share of adults \n who identify as LGBTQ",
               fontweight='bold', fontsize=40, fontname="Times New Roman")
 
     # save as png
